@@ -4,8 +4,6 @@ export default class TableData extends Component {
 
 
     render() {
-        console.log('Hi I am in TableData')
-        console.log("tst........."+this.props.selectedvalue)
         return (
             <table id="simple-board" className="table">
              <thead><tr>
@@ -13,10 +11,13 @@ export default class TableData extends Component {
                      Group
                      </th>
                      <th>
-                     Medical
+                     Bilto
                      </th>
                      <th>
-                     Bilto
+                     A
+                     </th>
+                     <th>
+                     B
                      </th>
                  </tr></thead>
                 <tbody >
@@ -25,6 +26,7 @@ export default class TableData extends Component {
                     <td>{this.props.selectedvalue}</td>
                     <td>{this.props.selectedvalue2}</td>
                     <td>{this.props.selectedvalue3}</td>
+                    <td>{this.props.selectedvalue4}</td>
                     </tr>
 
                 </tbody>

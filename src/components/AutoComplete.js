@@ -17,14 +17,21 @@ export default class AutoComplete extends React.Component {
     }
 
     handleClick() {
-
-        this.setState({ tableValue: this.state.selected })
-
+        if (this.props.selectedDropDownVal == this.props.dropdownArray[0])
+            this.setState({ tableValue: this.state.selected })
+        else if (this.props.selectedDropDownVal == this.props.dropdownArray[1])
+            this.setState({ tableValue2: this.state.selected })
+        else if (this.props.selectedDropDownVal == this.props.dropdownArray[2])
+            this.setState({ tableValue3: this.state.selected })
+        else if (this.props.selectedDropDownVal == this.props.dropdownArray[3])
+            this.setState({ tableValue4: this.state.selected })
+            
+        this.setState({selected:""})
 
     }
 
     handleClick2() {
-        this.setState({ tableValue2: this.state.selected2 })
+
 
 
     }
@@ -38,7 +45,7 @@ export default class AutoComplete extends React.Component {
 
 
     handleSearch(event) {
-        console.log('event', event);
+        //console.log('event', event);
         //console.log('selectedValue.......',this.state.selectedValue)
 
     }
@@ -53,16 +60,15 @@ export default class AutoComplete extends React.Component {
         return (
             <Fragment>
                 <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-7">
                         <Typeahead
                             //onSearch={this.handleSearch}
-                            options={["abcaaa", "bcddsd", "aaaaaas", "de"]}
+                            options={this.props.suggestions}
                             onChange={(s) => {
                                 this.setState({ selected: s })
-                                console.log("********" + this.state.selected)
                             }}
                             placeholder="Choose a state..."
-                            selected={this.state.value}
+                            selected={this.state.selected}
                         />
                     </div>
                     <div className="col-sm-1">
@@ -70,7 +76,7 @@ export default class AutoComplete extends React.Component {
                             <span className="glyphicon glyphicon-plus"></span> Plus
                          </a>
                     </div>
-                    <div className="col-sm-3">
+                    {/*<div className="col-sm-3">
                         <Typeahead
                             //onSearch={this.handleSearch}
                             options={["abcaaa", "bcddsd", "aaaaaas", "de"]}
@@ -104,14 +110,22 @@ export default class AutoComplete extends React.Component {
                             <span className="glyphicon glyphicon-plus"></span> Plus
                          </a>
                     </div>
+                     */}
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <br />
                 <br />
                 <div className="row">
 
-                    <div className="col-sm-8">
+                    <div className="col-sm-10">
                         <TableData selectedvalue={this.state.tableValue} selectedvalue2={this.state.tableValue2}
-                            selectedvalue3={this.state.tableValue3} />
+                            selectedvalue3={this.state.tableValue3} 
+                            selectedvalue4={this.state.tableValue4} />
                     </div>
                 </div>
             </Fragment>
